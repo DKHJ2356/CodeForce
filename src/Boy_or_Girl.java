@@ -1,4 +1,6 @@
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Boy_or_Girl {
     public static void main(String[] args) {
@@ -7,18 +9,15 @@ public class Boy_or_Girl {
         String figure = sc.nextLine();
         figure = figure.toLowerCase();
 
-        int count = 0,unique = figure.length();
+        Set<Character> unique = new HashSet<>();
 
 
         for(int i = 0 ; i < figure.length() ; i++){
-            for(int j = i+1 ; j < figure.length() ; j++){
-                if(figure.charAt(i) == figure.charAt(j)){
-                    unique--;
-                }
-            }
+            unique.add(figure.charAt(i));
         }
 
-        if(unique%2 == 0) System.out.println("CHAT WITH HER!");
+        if(unique.size()%2 == 0) System.out.println("CHAT WITH HER!");
         else System.out.println("IGNORE HIM!");
+
     }
 }
