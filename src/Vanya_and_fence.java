@@ -22,7 +22,7 @@ public class Vanya_and_fence {
                 }
             }else if(a[i]<=h){
                 r++;
-            }else continue;
+            }
 
         }
 
