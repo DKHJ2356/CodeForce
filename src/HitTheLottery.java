@@ -7,7 +7,7 @@ public class HitTheLottery {
         //Step 1: Declare variables
 
         int n = input.nextInt();
-        int[] bills = {100, 20, 5, 1};
+        int[] bills = {100, 20, 10, 5, 1};
         int count = 0;
 
         for(int bill : bills){
