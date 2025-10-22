@@ -13,20 +13,19 @@ public class Queue_at_the_school {
 
         //Step 2: Find pattern BG then swap t times sequentially
 
-        for (int i = 0; i < n; i++) {
-            int x = 1;
-            if (s.charAt(i) == 'B') {
-                if (i + 1 < n && s.charAt(i + 1) == 'G') {
+        for (int time = 0; time < t; time++) {
 
-                    ///now swap t times using variable X. How?
+            for (int i = 0; i < n - 1; i++) {
 
-                    char temp = s.charAt(i);
+                if (arr[i] == 'B' && arr[i + 1] == 'G') {
+                    char temp = arr[i];
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
+                    i++;
                 }
+
             }
         }
-
 
         //Step 3: Reassign value of s and display the string
 
