@@ -5,18 +5,21 @@ public class Anton_and_Letters {
         Scanner input = new Scanner(System.in);
 
         String letters = input.nextLine();
-        int similar = 0;
-        int total = 0;
+        int[] unique = new int[1000];
+        int letterSlot = 1;
+        int totalDistinctLetter = 0;
 
-        System.out.println(letters);
-
-        for (int i = 1; i < letters.length() - 1; i += 3) {
-            total+=1;
-            for (int j = 4; j < letters.length() - 1; j += 3) {
-                if (letters.charAt(i) == letters.charAt(j)){
-                    similar = 1;
-                }
+        for(int i = 1; i<letters.length()-1; i++){
+            if( i == letterSlot){
+                letterSlot +=3;
+                unique[letters.charAt(i)] = 1;
             }
         }
+
+        for(int sum: unique){
+            totalDistinctLetter += sum;
+        }
+
+        System.out.println(totalDistinctLetter);
     }
 }
