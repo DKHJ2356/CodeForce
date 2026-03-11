@@ -7,7 +7,8 @@ public class FoxAndSnake {
         int n = input.nextInt();
         int m = input.nextInt();
         int flagHash = 0;
-        int stop = 0;
+        int last = 2;
+        int first = 4;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -16,24 +17,26 @@ public class FoxAndSnake {
 
                 if (k % 2 != 0) {
                     System.out.print("#");
-                    stop = 0;
-                } else if (flagHash == 0 && k % 2 == 0) {
+                } else {
 
-                    if (flagHash == 0 && j != m - 1) {
+                    if (flagHash == 0 && k == last && j != m - 1) {
                         System.out.print(".");
-                    } else{
+                    } else if (flagHash == 0 && k == last && j == m - 1) {
                         System.out.print("#");
                         flagHash = 1;
-                        stop = 1;
+                        last += 4;  /// line 2 or index 1 for i is k = last so first does not get close
                     }
 
-                }
-                if (flagHash == 1 && k % 2 == 0 && stop == 0) {
-                    if (j == 0) {
+                    if (flagHash == 1 && k == first && j == 0) {
                         System.out.print("#");
-                    } else {
+                    } else if (flagHash == 1 && k == first && j != 0){
                         System.out.print(".");
                     }
+                    if(flagHash == 1 && k == first && j == m-1){
+                        flagHash = 0;
+                        first += 4;
+                    }
+
                 }
 
 
