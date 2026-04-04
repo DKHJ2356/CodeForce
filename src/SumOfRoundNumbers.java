@@ -5,24 +5,25 @@ public class SumOfRoundNumbers {
         Scanner input = new Scanner(System.in);
 
         int testCases = input.nextInt();
+        int remainder = 10;
 
-        int round = 0;
 
         for (int i = 0; i < testCases; i++) {
-            int n = input.nextInt();
-            int divisor = 10;
-            String integer = String.valueOf(n);
-            int integerLength = integer.length();
 
-            while(integerLength != 0){
-                divisor *= divisor;
-                integerLength -= 2;
+            int round = 0;
+            int n = input.nextInt();
+
+            while (remainder <= 10000 && n != 0) {
+                if (n > 0 && n < 10) round++;
+                n/=10;
+                remainder *= 10;
             }
 
-            int lastDigit = n % 10;
-            int secondDigit = n % divisor;
 
-            System.out.println(secondDigit);
+            System.out.println(round);
+
         }
+
+
     }
 }
